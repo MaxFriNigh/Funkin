@@ -30,7 +30,7 @@ class MainMenuState extends MusicBeatState
 	var menuItems:FlxTypedGroup<FlxSprite>;
 
 	#if !switch
-	var optionShit:Array<String> = ['story mode', 'freeplay', 'options', 'kickstarter'];
+	var optionShit:Array<String> = ['story mode', 'freeplay', 'options'];
 	#else
 	var optionShit:Array<String> = ['story mode', 'freeplay'];
 	#end
@@ -90,13 +90,7 @@ class MainMenuState extends MusicBeatState
 
 		for (i in 0...optionShit.length)
 		{
-			menuItem = new FlxSprite(0, 60 + (i * 160));
-			menuItem.frames = tex;
-			if (optionShit[i] == "kickstarter")
-			{
-				menuItem.setGraphicSize(Std.int(menuItem.width * 0.775));
-				menuItem.updateHitbox();
-			}
+
 			menuItem.animation.addByPrefix('idle', optionShit[i] + " idle", 24);
 			menuItem.animation.addByPrefix('selected', optionShit[i] + " selected", 24);
 			menuItem.animation.play('idle');
